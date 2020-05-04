@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+
+{% block styles %}
+    {{ super() }}
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic);
+        blockquote{
+        font-size: 1.4em;
+        width:60%;
+        margin:50px auto;
+        font-family:Open Sans;
+        font-style:italic;
+        color: #555555;
+        padding:1.2em 30px 1.2em 75px;
+        border-left:8px solid #78C0A8 ;
+        line-height:1.6;
+        position: relative;
+        background:#EDEDED;
+        }
+
+        blockquote::before{
+        font-family:Arial;
+        content: "\201C";
+        color:#78C0A8;
+        font-size:4em;
+        position: absolute;
+        left: 10px;
+        top:-10px;
+        }
+
+        blockquote::after{
+        content: '';
+        }
+
+        blockquote span{
+        display:block;
+        color:#333333;
+        font-style: normal;
+        font-weight: bold;
+        margin-top:1em;
+        }
+
+        h1 { color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 200px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center; }
+        h2 { color: #111; font-family: 'Open Sans', sans-serif; font-size: 30px; font-weight: 300; line-height: 32px; margin: 0 0 72px; text-align: center; }
+    </style>
+{% endblock %}
+
+<div class="row">
+    <h1 class = 'text-center'>Diktionary</h1>
+            <blockquote>
+                    The more words you know, the more clearly and powerfully you will think.. and the more ideas you will invite into your mind.
+                <span>Wilfred Funk</span>
+            </blockquote>
+</div>
+{% endblock %}

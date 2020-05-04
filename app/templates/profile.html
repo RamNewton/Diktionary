@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+<div class = "row">
+    <div class = 'col-md-8'>
+        <h2> {{'Welcome, ' + name + "!"}} </h2>
+        <br>
+        <h4> {{'You have ' + num + ' words in your favorites'}}</h4>
+        <h4> Review them anytime in the Flash Cards section!</h4>
+    </div>
+    <div class = 'text-right col-md-4'>
+            <h4>{{'Username: ' + user.username}}</h4>
+            <h4>{{'Email: ' + user.email}}</h4>
+    </div>
+</div>
+{% endblock %}

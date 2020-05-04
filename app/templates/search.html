@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+
+<div class="row">
+    <div class="col-md-4">
+        <h1> Search </h1>
+        {{ wtf.quick_form(form) }}
+    </div>
+    {% if not dne and word != "" %}
+        <br>
+        <br>
+        <div class="col-md-4 col-md-offset-2">
+            {% if is_favorite %}
+                <a href = "{{url_for('main.remove_from_favorites', word=word)}}" ><button type="button" class="btn btn-danger btn-md"> Remove from Favorites </button></a>
+            {% else %}
+                <a href = "{{ url_for('main.add_to_favorites', word=word)}}" ><button type="button" class="btn btn-success btn-md"> Add to Favorites </button></a>
+            {% endif %}
+        </div>
+    {% endif %}
+</div>
+
+{% if dne %}
+<br>
+<h2> Word Does Not Exist in dictionary. </h2>
+<br>
+{% elif data is not none %}
+<br>
+<h2> {{ data|length }} Meanings found </h2>
+<br>
+
+{% for item in data %}
+<div class = "row">
+    <div class="col-md-4">
+        <div class="list-group">
+            <a href="" class="list-group-item list-group-item-success">
+                <h3 class="list-group-item-heading"> {{item['fl']}} </h3>
+                <p class="list-group-item-text"> {{item['shortdef'][0]}} </p>
+            </a>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endif %}
+
+{% endblock %}
